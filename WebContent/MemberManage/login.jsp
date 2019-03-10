@@ -1,0 +1,13 @@
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<html>
+	<head><title>VIP Login Page</title></head>
+	<body>
+		<s:form action="memberLogin" method="post" namespace="/MemberManage">
+			<h4>Welcome For Login...</h4>
+			<s:textfield name="member.name" label="VIP Name" tooltip="Please input your name" required="true"></s:textfield>
+			<s:password name="member.password" label="VIP Password" tooltip="Please input your password" required="true"></s:password>
+			<s:submit value="Submit"></s:submit>
+		</s:form>
+	</body>
+</html>

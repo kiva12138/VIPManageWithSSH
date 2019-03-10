@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+	<package name="vipmanage" namespace="/MemberManage" extends="struts-default">
+		<action name="memberRegister" class="memberRegisterAction">
+			<result name="success" type="redirectAction">memberQuery</result>
+		</action>
+		<action name="memberLogin" class="memberLoginAction">
+			<result name="success"  type="redirectAction">memberQuery</result>
+			<result name="error">/MemberManage/register.jsp</result>
+		</action>
+		<action name="memberQuery" class="memberQueryAction">
+			<result name="success">/MemberManage/displayAll.jsp</result>
+		</action>
+		<action name="memberDelete" class="memberDeleteAction">
+			<result name="success" type="redirectAction">memberQuery</result>
+		</action>
+		<action name="memberShow" class="memberUpdateAction"  method="showMember">
+			<result name="success" type="redirectAction">memberQuery</result>
+		</action>
+		<action name="memberUpdate" class="memberUpdateAction">
+			<result name="success">/MemberManage/update.jsp</result>
+		</action>
+	</package>
+</struts>
